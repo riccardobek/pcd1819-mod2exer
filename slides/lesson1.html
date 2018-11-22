@@ -109,7 +109,7 @@ Note: L'enfasi è sul fatto che i processi condividono le stesse risorse, sullo 
 
 Teoria e tecniche per la gestione di più processi su macchine diverse che operano in modo coordinato allo svolgimento di un unico compito.
 
-Note: Qui l'enfasi è sulla separazione fra i processi su macchine diverse. Quindi, le tecniche di programmazione concorrente si occupano di comunicazione, trasmissione di messaggi o dello stato di un processo verso un'altra macchina, di collaborazione attraverso questo scambio di messaggi e informazioni. Le tecniche forniscono un modello della comunicazione fra processi su macchine differenti, con tutte le problematiche che questa comunicazione può comportare.
+Note: Qui l'enfasi è sulla separazione fra i processi su macchine diverse. Quindi, le tecniche di programmazione distribuita si occupano di comunicazione, trasmissione di messaggi o dello stato di un processo verso un'altra macchina, di collaborazione attraverso questo scambio di messaggi e informazioni. Le tecniche forniscono un modello della comunicazione fra processi su macchine differenti, con tutte le problematiche che questa comunicazione può comportare.
 
 ---
 
@@ -249,7 +249,9 @@ La **programmazione funzionale** tratta preferibilmente dati immutabili, con qua
 La **programmazione concorrente** si pone nel quadrante più difficile, dove lo stato è mutabile e condiviso, e quindi l'accesso e l'intervento su di esso va coordinato e gestito.
 
 
-QUIZ: dove si colloca la **programmazione ad oggetti** in questo diagramma?
+## Quiz
+
+Dove si colloca la **programmazione ad oggetti** in questo diagramma?
 
 ---
 
@@ -498,7 +500,7 @@ lancia diversi thread in successione
 
 ```java
   public static void main(String[] args) {
-    Stream<Thread> threads = Stream.generate(new ThreadSupplier());
+    var threads = Stream.generate(new ThreadSupplier());
 
     System.out.println("Starting Threads");
     threads.limit(10).forEach((Thread a) -> a.start());
@@ -517,7 +519,7 @@ Java 11 Javadocs
 https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html
 
 
-5 thinks you didn't know about...
+5 things you didn't know about...
 
 Java 10
 
@@ -528,7 +530,7 @@ Multithreaded Java programming
 https://www.ibm.com/developerworks/java/library/j-5things15/index.html
 
 
-5 thinks you didn't know about...
+5 things you didn't know about...
 
 java.util.concurrent
 
@@ -591,6 +593,7 @@ Se non siete già iscritti, prendete nota per il prossimo anno.
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				slideNumber: 'c/t',
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
