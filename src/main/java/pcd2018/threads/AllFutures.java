@@ -8,25 +8,23 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
 
 /**
- * Schedule some futures and wait for their execution.
+ * Schedule some futures and ask for their complete execution.
  */
-public class ScheduledFutures {
+public class AllFutures {
 
   public static void main(String[] args) throws InterruptedException, ExecutionException {
 
     ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(4);
-    Supplier<Callable<Integer>> supplier = new FactorialBuilder();
-    List<Future<Integer>> futures = new ArrayList<Future<Integer>>();
+    var supplier = new FactorialBuilder();
+    var callables = new ArrayList<Callable<Integer>>();
+    for (int i = 0; i < 10; i++)
+      callables.add(supplier.get());
 
     System.out.println("Scheduling computations");
-
-    for (int i = 0; i < 10; i++)
-      futures.add(executor.submit(supplier.get()));
-
-    System.out.println("Done scheduling.");
+    var futures = executor.invokeAll(callables);
+    System.out.println("Done computations");
 
     while (executor.getCompletedTaskCount() < futures.size()) {
       System.out.printf("Completed Tasks: %d: %s\n", executor.getCompletedTaskCount(), format(futures));

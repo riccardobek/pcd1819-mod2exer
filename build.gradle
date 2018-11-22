@@ -86,3 +86,12 @@ task scheduledFutures(type: JavaExec) {
   main = 'pcd2018.threads.ScheduledFutures'
 }
 
+task allFutures(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.AllFutures'
+}
+
+task anyFutures(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.threads.AnyFutures'
+}
