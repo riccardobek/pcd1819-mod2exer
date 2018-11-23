@@ -29,15 +29,23 @@ public class ScheduledFutures {
     System.out.println("Done scheduling.");
 
     while (executor.getCompletedTaskCount() < futures.size()) {
-      System.out.printf("Completed Tasks: %d: %s\n", executor.getCompletedTaskCount(), format(futures));
+      System.out.printf("Completed Tasks: %2d: %s\n", executor.getCompletedTaskCount(), format(futures));
       TimeUnit.MILLISECONDS.sleep(50);
     }
 
-    System.out.printf("Completed Tasks: %d: %s\n", executor.getCompletedTaskCount(), format(futures));
+    System.out.printf("Completed Tasks: %2d: %s\n", executor.getCompletedTaskCount(), format(futures));
 
     executor.shutdown();
   }
 
+  /**
+   * Format the actual status of the Futures
+   * 
+   * @param futures list of futures to report on
+   * @return the status line to print
+   * @throws InterruptedException
+   * @throws ExecutionException
+   */
   private static String format(List<Future<Integer>> futures) throws InterruptedException, ExecutionException {
     StringBuilder done = new StringBuilder();
     for (Future<Integer> future : futures) {

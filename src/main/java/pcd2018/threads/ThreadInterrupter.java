@@ -1,5 +1,9 @@
 package pcd2018.threads;
 
+/**
+ * A thread that interrupts another one after one waiting one second, while reporting about the target liveness.
+ *
+ */
 class Interrupter implements Runnable {
 
   private final Thread tgt;

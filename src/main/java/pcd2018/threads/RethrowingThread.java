@@ -31,6 +31,9 @@ class RethrowingThreadBuilder implements Supplier<Thread> {
 
 }
 
+/**
+ * A thread whose exceptions are managed
+ */
 public class RethrowingThread {
 
   public static void main(String[] args) {
