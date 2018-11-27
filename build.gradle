@@ -95,3 +95,20 @@ task anyFutures(type: JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   main = 'pcd2018.threads.AnyFutures'
 }
+
+// Lesson 15
+
+task reducePerf(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.safe.ReducePerf'
+}
+
+task printerOperator(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.safe.PrinterOperator'
+}
+
+task localVar(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.safe.LocalMain'
+}
