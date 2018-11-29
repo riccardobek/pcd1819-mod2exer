@@ -36,7 +36,7 @@ public class ReducePerf {
   public static void main(String[] args) {
     Random rnd = new Random();
     ConcurrentHashMap<String, Long> map = new ConcurrentHashMap<String, Long>();
-    IntStream.range(0, 1000).forEach(i -> map.put("k" + i, Long.valueOf(rnd.nextInt(1000))));
+    IntStream.range(0, 10000).forEach(i -> map.put("k" + i, Long.valueOf(rnd.nextInt(1000))));
 
     System.out.println("Start");
 

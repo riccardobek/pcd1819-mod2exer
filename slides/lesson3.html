@@ -382,6 +382,8 @@ Nel package `java.util.concurrent` si trovano le versioni ottimizzate per la con
 
 In generale, sono pensate per essere più efficienti della versione sincronizzata delle loro controparti, per es. `Collections.syncronizedMap(new HashMap())`
 
+Note: rispetto alla sincronizzazione della completa struttura dati, queste classi limitano la sincronizzazione alle sole sezioni critiche, in modo da ottenere complessivamente una maggiore efficienza.
+
 
 ## ConcurrentMap
 
@@ -536,7 +538,7 @@ Per ogni algoritmo vi sono varie versioni:
 * con risultati primitivi (`int`, `double` ecc.)
 
 
-Le operazioni di riduzione, ricerca ed esecuzioni di effetti non sono atomiche nel loro complesso, ma ogni coppia chiave-valore non nulla ha una garanzia di  `happens-before` con il suo uso nell'iterazione.
+Le operazioni di riduzione, ricerca ed esecuzione di effetti non sono atomiche nel loro complesso, ma ogni coppia chiave-valore non nulla ha una garanzia di  `happens-before` con il suo uso nell'iterazione.
 
 
 ## BlockingQueue
@@ -567,13 +569,15 @@ Prelievo
 |`take()`|attesa|
 |`poll(time, unit)`|attesa limitata|
 
+Note: il primo metodo ritorna immediatamente con un'eccezione se non ci sono elementi da rimuovere. Il secondo ritorna immediatamente con un valore speciale. Il terzo ed il quarto attendono, per un periodo indefinito o specificato.
+
 
 Lettura
 
 |metodo|risultato negativo|
 |--|----|
 |`element()`|eccezione|
-|`peek()`|`null|
+|`peek()`|`null`|
 
 
 ```java
@@ -844,7 +848,8 @@ Note: questo `Runnable` legge e stampa il valore della variabile threadlocal.
 ```java
 ExecutorService executor = Executors.newFixedThreadPool(4);
 LocalVar var = new LocalVar();
-IntStream.range(0, 20).forEach((a) -> executor.execute(new LocalReader(var, a)));
+IntStream.range(0, 20).forEach((a) ->
+  executor.execute(new LocalReader(var, a)));
 executor.shutdown();
 ```
 
