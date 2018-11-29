@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import io.vavr.collection.HashSet;
 import pcd2018.lab1.bowling.GameRecord;
 import pcd2018.lab1.data.DataRecord;
-import pcd2018.lab1.solution.GameRecordToData;
 
 class DecoderTest {
 

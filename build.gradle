@@ -145,3 +145,8 @@ task step4(type: Test) {
     includeTags 'Step-4'
   }
 }
+
+task lab1(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.lab1.Main'
+}
