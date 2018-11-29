@@ -4,7 +4,6 @@ import java.util.concurrent.BlockingQueue;
 
 import pcd2018.lab1.bowling.GameRecord;
 import pcd2018.lab1.data.DataRecord;
-import pcd2018.lab1.solution.GameRecordToData;
 
 /**
  * Riceve record dalla coda di input, e li smista alle due code di output dopo averli trasformati.
