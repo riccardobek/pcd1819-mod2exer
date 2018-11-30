@@ -83,6 +83,7 @@ Questa classe è un `Runnable` che legge dalla coda sorgente e, attraverso i `Ga
 Questa classe è un `Runnable` che legge dalla coda indicata e somma i dati letti, secondo la chiave che contengono. A termine dell'elaborazione si può accedere alla mappa dei risultati.
 
 Punti di attenzione:
+
 * `ScoreReader` va pilotato da parte di un `Thread`. `Decoder` e `Summarizer` sono invece `Runnable`, quindi possono essere eseguiti direttamente da un `ExecutorService`
 * Ci si aspetta che più `ScoreReader` vengano avviati contemporaneamente, mentre in un dato momento sarà in esecuzione un `Decoder` e due `Summarizer`.
 * Il `Thread` che pilota lo `ScoreReader` dovrebbe chiudersi autonomamente quando lo `ScoreReader` ha esaurito il file.
@@ -90,7 +91,7 @@ Punti di attenzione:
 
 ## Test
 
-I test sono organizzati in passi, e sono "taggati" con apposite etichette per poterli eseguire singolarmente. Ogni etichetta è richiamabile da un comando gradle.
+I test sono organizzati in passi, e sono "taggati" con apposite etichette per poterli eseguire singolarmente. Ogni etichetta è richiamabile da un comando `gradle`.
 
 ### Step 1: `gradle step1`
 
@@ -100,7 +101,7 @@ Vengono verificate la funzioni statiche di lettura di un `GameRecord` e di parsi
 
 Oltre ai test del livello precedente, vengono verificata la lettura di un file di esempio da parte di `ScoreReader`
 
-### Step 2: `gradle step2`
+### Step 3: `gradle step3`
 
 Oltre ai test precedenti, viene verificato il funzionamento della classe `Decoder`
 
@@ -109,6 +110,10 @@ Oltre ai test precedenti, viene verificato il funzionamento della classe `Decode
 Oltre ai test precedenti, viene verificato il funzionamento della classe `Summarizer`
 
 Si consiglia di seguire l'ordine degli step, risolvere i test del livello e poi passare al livello successivo.
+
+## Esecuzione
+
+Il task `gradle lab1` esegue la classe Main e ottiene i risultati.
 
 
 
