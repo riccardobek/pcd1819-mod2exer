@@ -13,7 +13,7 @@ public class SingleThreadPool {
   public static void main(String[] args) {
     Executor executor = Executors.newSingleThreadExecutor();
 
-    var threads = Stream.generate(new ThreadSupplier());
+    Stream<Thread> threads = Stream.generate(new ThreadSupplier());
     System.out.println("Scheduling runnables");
     threads.limit(10).forEach((r) -> executor.execute(r));
     System.out.println("Done scheduling.");

@@ -18,8 +18,8 @@ public class ListTest {
     list.add("a");
     list.add("b");
     list.add("c");
-    var t1 = new Thread(new ListTraverser(list));
-    var t2 = new Thread(new ListUpdater(list));
+    Thread t1 = new Thread(new ListTraverser(list));
+    Thread t2 = new Thread(new ListUpdater(list));
     t1.start();
     t2.start();
     Thread.sleep(1000);

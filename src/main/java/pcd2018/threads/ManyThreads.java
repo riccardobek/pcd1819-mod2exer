@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 public class ManyThreads {
 
   public static void main(String[] args) {
-    var threads = Stream.generate(new ThreadSupplier());
+    Stream<Thread> threads = Stream.generate(new ThreadSupplier());
 
     System.out.println("Starting Threads");
     threads.limit(10).forEach((Thread a) -> a.start());

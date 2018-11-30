@@ -26,7 +26,7 @@ class DecoderTest {
     GameRecordToData transformer2 = new GameRecordToData(GameRecord::venue);
     BlockingQueue<DataRecord> dest2 = new LinkedBlockingQueue<DataRecord>(15);
 
-    var decoder = new Decoder(source, transformer1, dest1, transformer2, dest2);
+    Decoder decoder = new Decoder(source, transformer1, dest1, transformer2, dest2);
 
     source.put(new GameRecord("Jeffrey Leboski", "Hollywood Star Lanes", 4, "8/9/72XXX3/819/XX5"));
     source.put(new GameRecord("Sojie Eckel", "Houston Ball&Pins", 7, "4-8/354-5235818/8/2-"));

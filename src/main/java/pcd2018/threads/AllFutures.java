@@ -17,13 +17,13 @@ public class AllFutures {
   public static void main(String[] args) throws InterruptedException, ExecutionException {
 
     ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(4);
-    var supplier = new FactorialBuilder();
-    var callables = new ArrayList<Callable<Integer>>();
+    FactorialBuilder supplier = new FactorialBuilder();
+    ArrayList<Callable<Integer>> callables = new ArrayList<Callable<Integer>>();
     for (int i = 0; i < 10; i++)
       callables.add(supplier.get());
 
     System.out.println("Scheduling computations");
-    var futures = executor.invokeAll(callables);
+    List<Future<Integer>> futures = executor.invokeAll(callables);
     System.out.println("Done computations");
 
     while (executor.getCompletedTaskCount() < futures.size()) {

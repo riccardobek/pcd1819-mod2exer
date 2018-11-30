@@ -53,11 +53,11 @@ Il laboratorio consiste nel superare i test nell'ordine suggerito, per creare in
 
 Le classi da completare sono le seguenti:
 
-### `pcd2018.lab1.data.GameRecord`
+### `pcd2018.lab1.bowling.GameRecord`
 
 Record in cui leggere i dati dai file di ingresso.
 
-### `pcd2018.lab1.data.BowlingGame`
+### `pcd2018.lab1.bowling.BowlingGame`
 
 Classe che calcola il risultato di una partita di bowling per un giocatore. I test di questa classe sono contenuti nel package `pcd2018.lab1.bowling`. Il punteggio del bowling è un (kata classico)[http://codingdojo.org/kata/Bowling/]
 

@@ -11,7 +11,7 @@ class AtomicAdderTest {
 
   @Test
   void test() throws InterruptedException {
-    var adder = new AtomicAdder();
+    AtomicAdder adder = new AtomicAdder();
     adder.add();
     Thread.sleep(1000);
     assertEquals(300000, adder.target.get());

@@ -15,7 +15,7 @@ class AdderTest {
   @Test
   @Disabled
   void test() throws InterruptedException {
-    var adder = new Adder();
+    Adder adder = new Adder();
     adder.add();
     // Necessary to make the test framework wait for the threads to complete
     Thread.sleep(1000);

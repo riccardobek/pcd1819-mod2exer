@@ -12,17 +12,17 @@ public class Adder {
    */
   public void add() {
     // we repeat the same code to be sure to close over the shared variable
-    var t1 = new Thread(() -> {
+    Thread t1 = new Thread(() -> {
       for (int i = 0; i < 100000; i++) {
         target += 1;
       }
     });
-    var t2 = new Thread(() -> {
+    Thread t2 = new Thread(() -> {
       for (int i = 0; i < 100000; i++) {
         target += 1;
       }
     });
-    var t3 = new Thread(() -> {
+    Thread t3 = new Thread(() -> {
       for (int i = 0; i < 100000; i++) {
         target += 1;
       }

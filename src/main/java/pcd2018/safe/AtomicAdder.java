@@ -8,17 +8,17 @@ public class AtomicAdder {
 
   public void add() {
 
-    var t1 = new Thread(() -> {
+    Thread t1 = new Thread(() -> {
       for (int i = 0; i < 100000; i++) {
         target.incrementAndGet();
       }
     });
-    var t2 = new Thread(() -> {
+    Thread t2 = new Thread(() -> {
       for (int i = 0; i < 100000; i++) {
         target.incrementAndGet();
       }
     });
-    var t3 = new Thread(() -> {
+    Thread t3 = new Thread(() -> {
       for (int i = 0; i < 100000; i++) {
         target.incrementAndGet();
       }

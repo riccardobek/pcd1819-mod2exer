@@ -26,7 +26,7 @@ public class ScoreReaderTest {
   @Test
   @Tag("Step-2")
   public void testRead() throws FileNotFoundException, IOException {
-    var reader = new ScoreReader("src/test/resources/scoreReader.test.xz");
+    ScoreReader reader = new ScoreReader("src/test/resources/scoreReader.test.xz");
 
     GameRecord rec1 = reader.get();
     assertEquals("Sojie Eckel", rec1.player, "Name");
