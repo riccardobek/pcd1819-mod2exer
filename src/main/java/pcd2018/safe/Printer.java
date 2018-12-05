@@ -3,7 +3,7 @@ package pcd2018.safe;
 /**
  * The technical interface of a printer.
  */
-interface Printer {
+public interface Printer {
 
   /**
    * Print a document

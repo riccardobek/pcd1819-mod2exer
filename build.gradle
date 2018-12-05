@@ -10,8 +10,8 @@ plugins {
 group 'pcd2018'
 version '0.7.0'
 
-sourceCompatibility = '8'
-targetCompatibility = '8'
+sourceCompatibility = '11'
+targetCompatibility = '11'
 
 description = """PCD 2018""" 
 
@@ -43,7 +43,7 @@ checkstyle {
   toolVersion = "8.14" // 6.19
 }
 
-// Lesson L13
+// Lesson 13
 
 task singleThread(type: JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
@@ -55,7 +55,7 @@ task manyThreads(type: JavaExec) {
   main = 'pcd2018.threads.ManyThreads'
 }
 
-// Lesson L14
+// Lesson 14
 
 task threadObserver(type: JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
@@ -150,3 +150,44 @@ task lab1(type: JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   main = 'pcd2018.lab1.Main'
 }
+
+// Lesson 16
+
+task runCounter(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.RunCounter'
+}
+
+task simpleFriends(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.SimpleFriends'
+}
+
+task namedWaiter(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.NamedWaiter'
+}
+
+task lockedFriends(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.LockedFriends'
+}
+
+task lockedPrinter(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.LockedPrinter'
+}
+
+task lockedBuffer(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.LockedBuffer'
+}  
+
+task semapohrePrinter(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.sync.SemaphorePrinter'
+}  
+
+
+
+
