@@ -23,6 +23,8 @@ Le slide si possono consultare anche ai seguenti indirizzi:
                 [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson2-nb.html]
     Lezione 15: [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson3.html]
                 [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson3-nb.html]
+    Lezione 16: [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson4.html]
+                [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson4-nb.html]
 
 La versione `-nb` è priva dello sfondo, per una più facile stampa. Si può ottenere il layout per la stampa aggiungendo all'URL il parametro `?print-pdf`. Aggiungendo `?print-pdf&showNotes=true` si ottiene anche la sovraimpressione delle note per il presentatore.
 
