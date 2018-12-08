@@ -188,6 +188,11 @@ task semapohrePrinter(type: JavaExec) {
   main = 'pcd2018.sync.SemaphorePrinter'
 }  
 
+// Lesson 17
 
+task perfectStream(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.streams.PerfectStream'
+}  
 
 
