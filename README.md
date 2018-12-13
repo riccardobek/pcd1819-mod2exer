@@ -117,5 +117,60 @@ Si consiglia di seguire l'ordine degli step, risolvere i test del livello e poi 
 
 Il task `gradle lab1` esegue la classe Main e ottiene i risultati.
 
+# Laboratorio 2 - Distribuzione
 
+Il laboratorio 2 è costituito da un client ed un server che comunicano fra loro in una rete locale.
+
+Il codice inziale è contenuto nel package `pcd2018.lab2`. Nel package `pcd2018.lab2.bowling` sono contenute delle classi di supporto.
+
+Il tema dell'esercizio è la realizzazione di un totalizzatore che raccoglie i risultati delle partiti di bowling che si svolgono all'interno della stessa sala. Essendo la rete chiusa e gestita, e la comunicazione infrequente, si considera sufficiente la comunicazione via Datagram UDP, senza connessioni permanenti.
+
+Il protocollo di comunicazione è costituito da messaggi nel formato "<lane>:<pins>" con _lane_ e _pins_ entrambi numeri interi. Per es: "4:5", "1:10", "7:0". _lane_ indica la pista che ha rilevato il tiro, e _pins_ il numero di birilli abbattuti. Il controllo della coerenza del risultato non è importante ed è comunque demandato alla classe che fa la totalizzazione (che viene fornita).
+
+Non è richiesto, nel tema del laboratorio, un controllo o una gestione dell'inizio di una nuova partita sulla stessa _lane_ dopo il completamento della precendente. E' comunque una possibile estensione se il tempo lo permette o come esercizio.
+
+## Package `pcd2018.lab2.bowling`
+
+Questo package contiene due classi di utilità:
+
+* la classe `BowlingScorer`, versione modificata di quella usata nel precedente laboratorio, permette di ottenere il punteggio progressivo via via che la partita prosegue.
+* la classe `Bowler` genera una partita giocata da un giocatore di un livello fornito. Il parametro del livello regola la bontà dei tiri fatti. La classe si preoccupa di generare una partita valida.
+
+## Classe `pcd2018.lab2.BowlingClient`
+
+La classe `BowlingClient` è il client. Deve essere completata in modo che predisponga la comunicazione con il server ed invii una serie di risultati per una certa lane.
+
+E' richiesto che la classe:
+* generi una partita usando la classe `Bowler`, in modo da inviare ad ogni invocazione dati diversi
+* legga dal parametro `args[0]` la _lane_ da inviare nel messaggio
+* si concluda dopo aver inviato tutti i dati di una partita
+* attenda qualche millisecondo (per es. 500) fra un invio e l'altro, così da poter provare il funzionamento di client concorrenti
+
+La classe deve essere eseguita con il comando:
+
+`./gradlew bowlingClient --args=4`
+
+dove variando il parametro `args` varia anche la _lane_ emessa nei messaggi.
+
+## Classe `pcd2018.lab2.BowlingServe`
+
+La classe `BowlingServer` è il server. Deve essere completata in modo che:
+
+* ascolti sulla porta indicata l'arrivo di pacchetti
+* ne legga il contenuto per accodarlo ad una `BlockingQueue` di elaborazione
+
+Nello stesso file è definita una classe `ScorePrinter` da completare, il cui scopo è:
+
+* prendere da una `BlockingQueue` un dato da elaborare
+* mantenere una mappa delle partite in corso indicizzata per _lane_
+* creare una partita se non ancora iniziata per una _lane_
+* aggiungere ad una partita iniziata un nuovo risultato preso dalla coda
+
+Il server deve essere avviato con il comando:
+
+`./gradlew bowlingServer`
+
+Si consiglia di esegire con successo il test contenuto in `BowlingServerTest` come prima cosa. Quando il test è verde, procedere all'implementazione del codice di networking. Il test può essere lanciato con il comando `./gradlew bowlingTest`
+
+Sono considerati argomento del laboratorio gli strumenti e le classi presentate fino alla lezione 19 - Primitive di Networking. E' perfettamente inutile alterare la classe di test fornita.
 

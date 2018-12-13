@@ -259,4 +259,21 @@ task toeClient(type: JavaExec) {
   main = 'pcd2018.sockets.ToeClient'
 }
 
+// Lab 2
+
+task bowlingClient(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.lab2.BowlingClient'
+}
+
+task bowlingServer(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.lab2.BowlingServer'
+}
+
+task bowlingTest(type: Test) {
+  useJUnitPlatform {
+    includeTags 'Bowling'
+  }
+}
 
