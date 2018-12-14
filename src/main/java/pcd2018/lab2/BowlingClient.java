@@ -5,7 +5,7 @@ package pcd2018.lab2;
  * 
  * Should accept a single param with the number of the lane, and wait a little between datagrams.
  * 
- * Run with: gradle -PmainClass=pcd2017.distribution.lab2.BowlingClient -Parg=4 exec
+ * Run with: ./gradlew bowlingClient --args=4
  * 
  * Try with different numbers as lane.
  * 
