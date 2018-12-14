@@ -10,8 +10,8 @@ plugins {
 group 'pcd2018'
 version '0.7.0'
 
-sourceCompatibility = '11'
-targetCompatibility = '11'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
 
 description = """PCD 2018""" 
 
