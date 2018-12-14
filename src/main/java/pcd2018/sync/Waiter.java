@@ -13,7 +13,7 @@ class Waiter implements Runnable {
 
   @Override
   public void run() {
-    var thread = Thread.currentThread().getName();
+    String thread = Thread.currentThread().getName();
     System.out.println(thread + " waiting on " + first.name);
     String doing = first.name;
     try {
