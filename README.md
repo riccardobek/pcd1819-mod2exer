@@ -25,6 +25,14 @@ Le slide si possono consultare anche ai seguenti indirizzi:
                 [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson3-nb.html]
     Lezione 16: [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson4.html]
                 [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson4-nb.html]
+    Lezione 17: [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson5.html]
+                [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson5-nb.html]
+    Lezione 18: [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson6.html]
+                [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson6-nb.html]
+    Lezione 19: [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson7.html]
+                [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson7-nb.html]
+    Lezione 20: [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson8.html]
+                [http://pcd2018.s3-website.eu-central-1.amazonaws.com/lesson8-nb.html]
 
 La versione `-nb` è priva dello sfondo, per una più facile stampa. Si può ottenere il layout per la stampa aggiungendo all'URL il parametro `?print-pdf`. Aggiungendo `?print-pdf&showNotes=true` si ottiene anche la sovraimpressione delle note per il presentatore.
 
@@ -141,6 +149,7 @@ Questo package contiene due classi di utilità:
 La classe `BowlingClient` è il client. Deve essere completata in modo che predisponga la comunicazione con il server ed invii una serie di risultati per una certa lane.
 
 E' richiesto che la classe:
+
 * generi una partita usando la classe `Bowler`, in modo da inviare ad ogni invocazione dati diversi
 * legga dal parametro `args[0]` la _lane_ da inviare nel messaggio
 * si concluda dopo aver inviato tutti i dati di una partita

@@ -266,6 +266,11 @@ task bowlingClient(type: JavaExec) {
   main = 'pcd2018.lab2.BowlingClient'
 }
 
+task bowlingStop(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.lab2.BowlingStopper'
+}
+
 task bowlingServer(type: JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   main = 'pcd2018.lab2.BowlingServer'
@@ -277,3 +282,22 @@ task bowlingTest(type: Test) {
   }
 }
 
+// Lesson 20
+
+task channelClient(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.channels.Client'
+}
+
+task channelServer(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'pcd2018.channels.Server'
+}
+
+// Exercise 2
+
+task exe2(type: Test) {
+  useJUnitPlatform {
+    includeTags 'Exercise-2'
+  }
+}
