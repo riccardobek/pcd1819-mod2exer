@@ -30,7 +30,18 @@ public class DiffieHellman {
    */
   public List<Integer> crack(long publicA, long publicB) {
     List<Integer> res = new ArrayList<Integer>();
-
+/*
+    for (long i=0;i<LIMIT;++i){
+      long alice = DiffieHellmanUtils.modPow(publicA,i,p);
+      for (long j=0;j<LIMIT;++j){
+        long bob = DiffieHellmanUtils.modPow(publicB,j,p);
+        if(alice==bob){
+          res.add((int)i);
+          res.add((int)j);
+        }
+      }
+    }
+*/
     return res;
   }
 }
