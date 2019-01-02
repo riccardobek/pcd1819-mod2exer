@@ -1,7 +1,9 @@
 package pcd2018.exe2;
 
+import javax.naming.LimitExceededException;
 import java.util.*;
 import java.util.concurrent.ForkJoinPool;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -33,38 +35,33 @@ public class DiffieHellman {
   public List<Integer> crack(long publicA, long publicB) {
     List<Integer> res = new ArrayList<>();
 
-    HashMap<Integer, Long> alice = new HashMap<>(
-      IntStream.rangeClosed(0, LIMIT)
-               .parallel()
-               .boxed()
-               .collect(Collectors.toMap(x -> x, x -> DiffieHellmanUtils.modPow(publicB, x, p)))
+    HashMap<Integer,Long> alice = new HashMap<>(
+        IntStream.rangeClosed(0, LIMIT)
+            .parallel()
+            .boxed()
+            .collect(Collectors.toMap(i -> i, i -> DiffieHellmanUtils.modPow(publicB, i, p)))
       );
 
-    HashMap<Integer, Long> bob = new HashMap<>(
-      IntStream.rangeClosed(0, LIMIT)
-               .parallel()
-               .boxed()
-               .collect(Collectors.toMap(x -> x, x -> DiffieHellmanUtils.modPow(publicA, x, p)))
-      );
+    HashMap<Integer,Long> bob = new HashMap<>(
+        IntStream.rangeClosed(0, LIMIT)
+            .parallel()
+            .boxed()
+            .collect(Collectors.toMap(j -> j, j -> DiffieHellmanUtils.modPow(publicA, j, p)))
+    );
 
-    alice.entrySet()
-            .parallelStream()
-            .forEach( x -> {
-              Integer[] values = bob.entrySet()
-                          .parallelStream()
-                          .filter( y -> y.getValue().equals(x.getValue()))
-                          .map(Map.Entry::getKey)
-                          .toArray(Integer[]::new);
-
-              Arrays.stream(values)
-                    .parallel()
-                    .sorted()
-                    .forEach(val -> {
-                      synchronized (this) {
-                        res.add(x.getKey());
-                        res.add(val);}
-                    });
-            });
+    alice.entrySet().parallelStream().forEach(
+        i-> bob.entrySet()
+                .parallelStream()
+                .filter(j -> j.getValue().equals(i.getValue()))
+                .map(Map.Entry::getKey)
+                .forEach(
+                        value -> {
+                            synchronized (this){
+                                res.add(i.getKey());
+                                res.add(value);
+                            }
+                        })
+        );
 
     return res;
   }
